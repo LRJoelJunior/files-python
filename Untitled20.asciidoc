@@ -1,0 +1,60 @@
++*In[ ]:*+
+[source, ipython3]
+----
+# Ouvrir le fichier en lecture seule
+with open('exemple.txt', 'r') as fichier:
+    contenu = fichier.read()
+    print(contenu)
+
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+n = 5  # Remplacez par le nombre de lignes souhaité
+with open('exemple.txt', 'r') as fichier:
+    for i in range(n):
+        ligne = fichier.readline()
+        print(ligne.strip())  # Retire les caractères de fin de ligne
+
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+n = 3  # Remplacez par le nombre de lignes souhaité
+with open('exemple.txt', 'r') as fichier:
+    lignes = fichier.readlines()[-n:]
+    for ligne in lignes:
+        print(ligne.strip())
+
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+def compter_mots(fichier):
+    with open(fichier, 'r') as f:
+        contenu = f.read()
+        mots = contenu.split()  # Divise le contenu en mots
+        return len(mots)
+
+fichier_texte = 'exemple.txt'  # Remplacez par le nom de votre fichier
+nombre_mots = compter_mots(fichier_texte)
+print(f"Nombre de mots dans {fichier_texte}: {nombre_mots}")
+
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+n = 3  # Remplacez par le nombre de lignes souhaité
+with open('exemple.txt', 'r') as fichier:
+    lignes = fichier.readlines()[-n:]
+    print(''.join(lignes).strip())  # Affiche les lignes sans séparateurs
+
+----
